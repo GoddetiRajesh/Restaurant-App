@@ -1,0 +1,140 @@
+.item-container {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.dish-item {
+  display: flex;
+  font-family: 'Roboto';
+  width: 50%;
+}
+.dish-type-red {
+  border: 1px solid maroon;
+  padding: 5px;
+  height: 32px;
+}
+.circle-red {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: maroon;
+  color: maroon;
+}
+.dish-type-green {
+  border: 1px solid green;
+  padding: 5px;
+  height: 32px;
+}
+.circle-green {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: green;
+  border: none;
+  color: green;
+}
+.dish-details {
+  margin-left: 8px;
+}
+.dish-name {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  margin: 0;
+}
+.dish-price {
+  font-size: 20px;
+  color: #3b3939;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.dish-description {
+  font-size: 16px;
+  color: gray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.available-container {
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+  height: 40px;
+  border-radius: 30px;
+  padding: 5px;
+}
+.custom-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+  background-color: transparent;
+}
+.item-count {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+.not-available {
+  color: red;
+  font-size: 16px;
+}
+.customizations {
+  color: blue;
+  font-size: 16px;
+}
+.dish-calories {
+  color: orange;
+  font-size: 20px;
+  font-weight: bold;
+}
+.dish-image {
+  height: 150px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+@media (max-width: 765px) {
+  .dish-name {
+    font-size: 17px;
+  }
+  .dish-price {
+    font-size: 17px;
+  }
+  .dish-description {
+    font-size: 13px;
+  }
+  .dish-calories {
+    font-size: 17px;
+  }
+  .customizations {
+    font-size: 15px;
+  }
+  .not-available {
+    font-size: 15px;
+  }
+  .dish-image {
+    height: 130px;
+    width: 130px;
+  }
+  .available-container {
+    width: 100px;
+    height: 35px;
+  }
+  .custom-button {
+    font-size: 25px;
+  }
+  .item-count {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,21 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tabs-list-container {
+  list-style-type: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.items-list-container {
+  list-style-type: none;
+  padding: 8px;
+  width: 100%;
+}

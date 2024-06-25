@@ -1,0 +1,55 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  padding: 20px 8px 20px 8px;
+  font-family: 'Roboto';
+}
+.restaurant-name {
+  font-size: 35px;
+  color: black;
+  font-weight: bold;
+}
+.orders-container {
+  display: flex;
+  align-items: center;
+}
+.orders {
+  font-size: 23px;
+  color: grey;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.cart {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+.cart-items-count {
+  height: 35px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: orange;
+  font-size: 18px;
+  font-weight: bold;
+  margin: auto;
+  color: white;
+}
+
+@media (max-width: 765px) {
+  .header-container {
+    padding: 10px;
+  }
+  .restaurant-name {
+    font-size: 25px;
+  }
+  .orders {
+    font-size: 17px;
+  }
+  .cart {
+    height: 25px;
+    width: 25px;
+  }
+}
