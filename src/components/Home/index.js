@@ -14,12 +14,11 @@ const apiStatusConstants = {
   failure: 'FAILURE',
 }
 
-class Restaurant extends Component {
+class Home extends Component {
   state = {
     dishesData: [],
     apiStatus: apiStatusConstants.initial,
     tabId: '',
-    itemCount: 0,
   }
 
   componentDidMount() {
@@ -29,9 +28,10 @@ class Restaurant extends Component {
   getData = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const response = await fetch(
-      'https://run.mocky.io/v3/2477b10c-ee18-4487-9962-1b3d073432c4',
+      'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details',
     )
     const data = await response.json()
+    console.log(response)
     if (response.ok) {
       const tableMenuList = data[0].table_menu_list
       const updatedData = tableMenuList.map(eachValue => ({
@@ -51,7 +51,7 @@ class Restaurant extends Component {
           dishType: eachItem.dish_Type,
           nexturl: eachItem.nextUrl,
           addonCat: eachItem.addonCat,
-          itemAdded: 0,
+          quantity: 0,
         })),
       }))
       this.setState({
@@ -77,7 +77,7 @@ class Restaurant extends Component {
             ...eachItem,
             categoryDishes: eachItem.categoryDishes.map(eachValue => {
               if (eachValue.dishId === id) {
-                return {...eachValue, itemAdded: eachValue.itemAdded + 1}
+                return {...eachValue, quantity: eachValue.quantity + 1}
               }
               return {...eachValue}
             }),
@@ -85,7 +85,6 @@ class Restaurant extends Component {
         }
         return {...eachItem}
       }),
-      itemCount: prevState.itemCount + 1,
     }))
   }
 
@@ -98,7 +97,7 @@ class Restaurant extends Component {
             ...eachItem,
             categoryDishes: eachItem.categoryDishes.map(eachValue => {
               if (eachValue.dishId === id) {
-                return {...eachValue, itemAdded: eachValue.itemAdded - 1}
+                return {...eachValue, quantity: eachValue.quantity - 1}
               }
               return {...eachValue}
             }),
@@ -106,7 +105,6 @@ class Restaurant extends Component {
         }
         return {...eachItem}
       }),
-      itemCount: prevState.itemCount - 1,
     }))
   }
 
@@ -117,13 +115,13 @@ class Restaurant extends Component {
   )
 
   renderSuccessView = () => {
-    const {dishesData, tabId, itemCount} = this.state
+    const {dishesData, tabId} = this.state
     const filterData = dishesData.filter(obj => obj.menuCategoryId === tabId)
     const filterList = filterData[0].categoryDishes
     console.log(filterList)
     return (
       <>
-        <Header itemCount={itemCount} />
+        <Header />
         <ul className="tabs-list-container">
           {dishesData.map(eachItem => (
             <TabItem
@@ -148,15 +146,28 @@ class Restaurant extends Component {
     )
   }
 
+  renderFailureView = () => (
+    <div className="loader-container">
+      <img
+        className="food-image"
+        src="https://www.shutterstock.com/shutterstock/photos/2092271563/display_1500/stock-vector-error-with-the-cute-water-drop-mascot-cute-style-design-for-t-shirt-sticker-logo-element-2092271563.jpg"
+        alt="food-page"
+      />
+      <h1 className="error-msg">Oops Something Went Wrong</h1>
+    </div>
+  )
+
   render() {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case 'SUCCESS':
         return this.renderSuccessView()
+      case 'FAILURE':
+        return this.renderFailureView()
       default:
         return this.renderLoadingView()
     }
   }
 }
 
-export default Restaurant
+export default Home

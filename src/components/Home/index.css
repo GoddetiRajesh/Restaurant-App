@@ -19,3 +19,13 @@
   padding: 8px;
   width: 100%;
 }
+
+.food-image {
+  width: 70%;
+}
+.error-msg {
+  font-family: 'Bree Serif';
+  font-size: 25px;
+  font-weight: bold;
+  color: #16187a;
+}
